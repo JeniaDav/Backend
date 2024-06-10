@@ -1,0 +1,23 @@
+﻿@page 
+@model Backend.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class = "text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Введите вашу Информацию</p>
+</div>
+<form method="post">
+    <div class="form group">
+        <label for="messageText">Message</label>
+        <input type = "text" class="form-control" id="messageText" name=" MessageText" value="@Model.MessageText"/>
+    </div>
+    <button type="submit" class="btn btn-primary" asp-asp-page-handler="Save">Сохранить</button>
+    <button type="submit" class="btn btn-secondary" asp-asp-page-handler="Load">Загрузить</button>
+</form>
+@if (Model.LastMessage != null)
+{
+    <div class="alert alert-info mt-4">
+        <strong>Last message:</strong> @Model.LastMessage.Text
+    </div>
+}
